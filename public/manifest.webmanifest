@@ -1,0 +1,10 @@
+{
+  "name": "Nate's Ghost Hunt",
+  "short_name": "Ghost Hunt",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#0b0612",
+  "theme_color": "#120a1e",
+  "start_url": "./",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

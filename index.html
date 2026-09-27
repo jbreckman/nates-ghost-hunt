@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#120a1e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Ghost Hunt" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Luckiest+Guy&display=swap" rel="stylesheet" />
+    <title>Nate's Ghost Hunt</title>
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <div id="vignette"></div>
+    <div id="danger"></div>
+    <div id="flash"></div>
+
+    <div id="ui">
+      <div id="hud" class="hidden">
+        <div class="hud-left no-joy">
+          <div class="pill" id="ghost-count"><span class="ghost-ico"></span><span id="ghosts">0</span></div>
+          <div class="pill small" id="score">0</div>
+        </div>
+        <div class="hud-center no-joy">
+          <div id="timer">60</div>
+          <div id="time-pops"></div>
+          <div id="combo"></div>
+          <div id="room-name"></div>
+        </div>
+        <div class="hud-right no-joy">
+          <button class="icon-btn" id="btn-mute" aria-label="Mute">🔊</button>
+          <button class="icon-btn" id="btn-pause" aria-label="Pause">❚❚</button>
+        </div>
+      </div>
+
+      <div id="controls" class="hidden">
+        <button class="btn" id="btn-vac" aria-label="Vacuum"><span class="vac-ico"></span><span class="vac-label">VACUUM</span></button>
+      </div>
+      <div id="key-hint" class="hidden">WASD / Arrows: move &nbsp;·&nbsp; SPACE: vacuum &nbsp;·&nbsp; P: pause</div>
+      <div id="tip"></div>
+
+      <div id="bubble"></div>
+      <div id="floaters"></div>
+
+      <div id="jumpscare"><canvas id="boo-face" width="512" height="512"></canvas><div class="boo-text">BOO!</div></div>
+
+      <div id="title" class="screen">
+        <div class="title-wrap">
+          <h1><span class="t1">Nate's</span><span class="t2">Ghost Hunt</span></h1>
+          <p class="sub">The old house on the hill is full of ghosts... and they're sneaky!</p>
+          <button class="big-btn" id="btn-start">START HUNTING!</button>
+          <div class="how">
+            <div><b>1.</b> Shine your flashlight on a ghost to make it dizzy 💫</div>
+            <div><b>2.</b> Hold <b>VACUUM</b> to suck it up! More ghosts = more time ⏱️</div>
+            <div><b>3.</b> Little brother Matt sniffs out hidden ghosts — follow him! But he gets into trouble. If a ghost grabs him, shine your light on it to rescue him!</div>
+            <div class="warn">Watch out for green <b>Prankster</b> ghosts — they steal your time!</div>
+          </div>
+          <div class="row">
+            <label class="toggle no-joy"><input type="checkbox" id="opt-scares" checked /> Jump scares</label>
+            <span id="best"></span>
+          </div>
+        </div>
+      </div>
+
+      <div id="pause" class="screen hidden">
+        <div class="panel">
+          <h2>Paused</h2>
+          <button class="big-btn" id="btn-resume">KEEP HUNTING</button>
+          <button class="big-btn alt" id="btn-quit">QUIT</button>
+        </div>
+      </div>
+
+      <div id="over" class="screen hidden">
+        <div class="panel">
+          <h2 class="spooky">Time's Up!</h2>
+          <div id="new-best" class="hidden">★ NEW HIGH SCORE! ★</div>
+          <div class="big-count"><span class="ghost-ico big"></span><span id="final-ghosts">0</span></div>
+          <div id="final-rank"></div>
+          <div id="final-score"></div>
+          <div id="final-breakdown"></div>
+          <div id="final-extra"></div>
+          <button class="big-btn" id="btn-again">PLAY AGAIN</button>
+        </div>
+      </div>
+
+      <div id="loading" class="screen"><div class="panel"><h2 class="spooky">Loading...</h2></div></div>
+      <div id="fps" class="hidden"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
